@@ -3,21 +3,17 @@ using RoutePlanning.Infrastructure.Database;
 using Netcompany.Net.DomainDrivenDesign;
 using Netcompany.Net.UnitOfWork;
 using Netcompany.Net.UnitOfWork.AmbientTransactions;
-using Microsoft.EntityFrameworkCore.Diagnostics;
-using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 
 namespace RoutePlanning.Infrastructure;
 public static class ServiceCollectionExtensions
+
 {
     public static IServiceCollection AddRoutePlanningInfrastructure(this IServiceCollection services)
     {
-        var keepAliveConnection = new SqliteConnection("DataSource=:memory:");
-        keepAliveConnection.Open();
         services.AddDbContext<RoutePlanningDatabaseContext>(builder =>
         {
-            builder.UseSqlite(keepAliveConnection);
-            builder.ConfigureWarnings(x => x.Ignore(RelationalEventId.AmbientTransactionWarning));
+            builder.UseSqlServer("Server=tcp:dbs-eit-dk1.database.windows.net;Database=db-eit-dk1;User Id=admin-eit-dk1;Password=Eastindia4thewin;");
         });
 
         services.AddDomainDrivenDesign(options => options.UseDbContext<RoutePlanningDatabaseContext>());
