@@ -1,5 +1,6 @@
 ﻿using Netcompany.Net.UnitOfWork;
 using RoutePlanning.Domain.Locations;
+using RoutePlanning.Domain.Prices;
 using RoutePlanning.Domain.Users;
 using RoutePlanning.Infrastructure.Database;
 
@@ -17,15 +18,38 @@ public static class DatabaseInitialization
         var unitOfWorkManager = serviceScope.ServiceProvider.GetRequiredService<IUnitOfWorkManager>();
         await using (var unitOfWork = unitOfWorkManager.Initiate())
         {
-            await SeedUsers(context);
-            await SeedLocationsAndRoutes(context);
+            //await SeedUsers(context);
+            //await SeedLocationsAndRoutes(context);
+            //await SeedPrices(context);
 
             //unitOfWork.Commit();
         }
     }
 
+    private static async Task SeedPrices(RoutePlanningDatabaseContext context)
+    {
+        var row1 = new Price(DateTime.Parse("2022-11-01T00:00:00"), DateTime.Parse("2023-04-30T23:59:59"), 0, 10, 8);
+        await context.AddAsync(row1);
+
+        var row2 = new Price(DateTime.Parse("2022-11-01T00:00:00"), DateTime.Parse("2023-04-30T23:59:59"), 10, 50, 8);
+        await context.AddAsync(row2);
+
+        var row3 = new Price(DateTime.Parse("2022-11-01T00:00:00"), DateTime.Parse("2023-04-30T23:59:59"), 50, 1000, 8);
+        await context.AddAsync(row3);
+
+        var row4 = new Price(DateTime.Parse("2022-05-01T00:00:00"), DateTime.Parse("2023-10-31T23:59:59"), 0, 10, 5);
+        await context.AddAsync(row4);
+
+        var row5 = new Price(DateTime.Parse("2022-05-01T00:00:00"), DateTime.Parse("2023-10-31T23:59:59"), 10, 50, 5);
+        await context.AddAsync(row5);
+
+        var row6 = new Price(DateTime.Parse("2022-05-01T00:00:00"), DateTime.Parse("2023-10-31T23:59:59"), 50, 1000, 5);
+        await context.AddAsync(row6);
+    }
+
     private static async Task SeedLocationsAndRoutes(RoutePlanningDatabaseContext context)
     {
+
         var KANARISKE = new Location("DE KANARISKE ØER");
         await context.AddAsync(KANARISKE);
 

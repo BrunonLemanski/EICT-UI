@@ -14,8 +14,13 @@ a, .btn-link {
 
 .btn-primary {
     color: #fff;
+
+    background-color: #db8f0b;
+    border-color: #db8f0b;
+
     background-color: #ec5a16 !important;
     border-color: #ec5a16 !important;
+
 }
 
 .content {
@@ -70,7 +75,12 @@ a, .btn-link {
         height: 100%;
         object-fit: cover;
     }
+    .alert-primary{
+        font-size: 9px;
+    }
 }
 
-
+.route{
+    display: block;
+}
 

@@ -14,6 +14,8 @@ public sealed partial class DistanceCalculator
     private string? DisplayDestination { get; set; }
     private int? DisplayDistance { get; set; }
 
+    private float? DisplayPrice { get; set; }
+
     [Inject]
     private IMediator Mediator { get; set; } = default!;
 
@@ -28,7 +30,10 @@ public sealed partial class DistanceCalculator
         {
             DisplaySource = SelectedSource.Name;
             DisplayDestination = SelectedDestination.Name;
-            DisplayDistance = await Mediator.Send(new DistanceQuery(SelectedSource.LocationId, SelectedDestination.LocationId), CancellationToken.None);
+            DisplayDistance = await Mediator.Send(new DistanceQuery(SelectedSource.LocationId, SelectedDestination.LocationId), CancellationToken.None) * 12;
+
+            DisplayPrice = await Mediator.Send(new DistanceQuery(SelectedSource.LocationId, SelectedDestination.LocationId), CancellationToken.None) * 6.56f;
+
         }
     }
 }
