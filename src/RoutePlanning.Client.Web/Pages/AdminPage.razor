@@ -1,0 +1,114 @@
+﻿@page "/adminpage"
+
+<PageTitle>Admin Page</PageTitle>
+
+<h1>Admin Panel</h1>
+<hr/>
+
+    <div class="row">
+        &nbsp;&nbsp;
+        <button style="width: 100px;" class="btn btn-primary mb-5">Back</button> &nbsp;&nbsp;&nbsp;&nbsp;
+        <button style="width: 200px;" class="btn btn-primary mb-5">
+            <div class="oi oi-plus" aria-hidden="true"></div>Add</button> &nbsp;&nbsp;&nbsp;&nbsp;
+        <button style="width: 200px; background-color: red; border-color: red;" class="btn btn-primary mb-5">
+            <div class="oi oi-trash" aria-hidden="true"></div>Remove</button> &nbsp;&nbsp;&nbsp;&nbsp;
+        <select style="width: 260px; border-color: #15194f; height: 37px; border-radius: 5px 5px 5px 5px" name="admin-options" id="admin-options">
+            <option value="prices">Prices</option>
+            <option value="harbors">Harbors</option>
+            <option value="orders">Orders</option>
+        </select>
+    </div>
+
+    <style>
+        table,
+        th,
+        td {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th,
+        td {
+            padding: 10px;
+        }
+        th {
+            text-align: center;
+        }
+    </style>
+
+
+<table id="priceTable" style="text-align:center; width:100%;" class="admin-divs">
+    <tr style="background-color: #15194f; color: white; text-align: center">
+        <th>Price ID</th>
+        <th>Valid From</th>
+        <th>Valid To</th>
+        <th>Range From</th>
+        <th>Range To</th>
+        <th>Cost</th>
+    </tr>
+    <tr>
+        <td>1</td>
+        <td>November</td>
+        <td>April</td>
+        <td>0</td>
+        <td>10</td>
+        <td>$8</td>
+    </tr>
+    <tr>
+        <td>2</td>
+        <td>November</td>
+        <td>April</td>
+        <td>10</td>
+        <td>50</td>
+        <td>$8</td>
+    </tr>
+</table>
+
+<table id="orderLog" style="text-align:center; width:100%; margin-top: 20px">
+    <tr style="background-color: #15194f; color: white; text-align: center">
+        <th>Order ID</th>
+        <th>Transported From</th>
+        <th>Transported To</th>
+        <th>Time Estimate</th>
+        <th>Cost</th>
+        <th>Status</th>
+    </tr>
+    <tr>
+        <td>001</td>
+        <td>Harbor 1</td>
+        <td>Harbor 2</td>
+        <td>10 hours</td>
+        <td>$10</td>
+        <td>Delivered</td>
+    </tr>
+    <tr>
+        <td>002</td>
+        <td>Harbor 3</td>
+        <td>Harbor 7</td>
+        <td>40 hours</td>
+        <td>$100</td>
+        <td>Ongoing</td>
+    </tr>
+</table>
+
+<table id="harborsOverview" style="text-align:center; width:inherit; margin-top: 20px; margin-bottom: 20px">
+    <tr style="background-color: #15194f; color: white; text-align: center">
+        <th>Harbor</th>
+        <th>Discount</th>
+        <th>Status</th>
+        <th>Update status</th>
+    </tr>
+    <tr>
+        <td>Harbor 1</td>
+        <td>0.10%</td>
+        <td>Active</td>
+        <td><div class="row"><button style="width: 100px; align-content: center; margin-left:20px; margin-right:20px" class="btn btn-primary">Disable</button></div></td>
+    </tr>
+    <tr>
+        <td>Harbor 2</td>
+        <td>0%</td>
+        <td>Disable</td>
+        <td><div class="row"><button style="width: 100px; align-content: center; margin-left:20px; margin-right:20px;" class="btn btn-primary">Activate</button></div></td>
+    </tr>
+</table>
+
+

@@ -49,6 +49,7 @@ public static class DatabaseInitialization
 
     private static async Task SeedLocationsAndRoutes(RoutePlanningDatabaseContext context)
     {
+
         var KANARISKE = new Location("DE KANARISKE ØER");
         await context.AddAsync(KANARISKE);
 

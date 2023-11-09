@@ -14,8 +14,13 @@ a, .btn-link {
 
 .btn-primary {
     color: #fff;
+
+    background-color: #db8f0b;
+    border-color: #db8f0b;
+
     background-color: #ec5a16 !important;
     border-color: #ec5a16 !important;
+
 }
 
 .content {
