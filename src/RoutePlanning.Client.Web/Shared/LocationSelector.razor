@@ -1,7 +1,7 @@
 ﻿@using RoutePlanning.Application.Locations.Queries.SelectableLocationList;
 <div class="form-group row mb-3">
     <label for="formControlSelect" class="col-sm-2 col-form-label">@Label</label>
-    <div class="col-sm-4">
+    <div class="col-sm-8">
         @if (Locations == null)
         {
             <select class="form-control" disabled>
@@ -10,8 +10,8 @@
         }
         else
         {
-            <select class="form-control" id="formControlSelect" @onchange="OnSelectedChanged">
-                <option disabled selected>Select a source location</option>
+            <select class="form-control" color="blue" id="formControlSelect" @onchange="OnSelectedChanged">
+                <option disabled selected>Select a nice location</option>
                 @foreach (var location in Locations)
                 {
                     <option value="@location.LocationId.Value">@location.Name</option>

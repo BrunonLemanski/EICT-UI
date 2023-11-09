@@ -1,13 +1,23 @@
 ﻿@page "/distancecalculator"
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+
+
 <PageTitle>Distance Calculator</PageTitle>
 
-<h1>Distance Calculator</h1>
-
-<LocationSelector Label="Source" Locations="@Locations" @bind-Selected="SelectedSource"></LocationSelector>
-<LocationSelector Label="Destination" Locations="@Locations" @bind-Selected="SelectedDestination"></LocationSelector>
-
-<button class="btn btn-primary mb-5" @onclick="CalculateDistance">Calculate</button>
+<div class="container">
+    <div class="row">
+        <h1>Distance Calculator</h1>
+        <div class="col-md-6">
+            <LocationSelector Label="Source" Locations="@Locations" @bind-Selected="SelectedSource"></LocationSelector>
+            <LocationSelector Label="Destination" Locations="@Locations" @bind-Selected="SelectedDestination"></LocationSelector>
+            <button class="btn btn-primary mb-5" @onclick="CalculateDistance">Calculate</button>
+        </div>
+        <div class="col-md-6">
+            <img src="map.png" alt="Responsive image" class="img-fluid full-width">
+        </div>
+    </div>
+</div>
 
 <br />
 
@@ -20,6 +30,4 @@
         <span class="oi oi-arrow-right" aria-hidden="true"></span>
         <span>@DisplayDestination</span>
     </span>
-    
-
 }
