@@ -9,7 +9,7 @@ public sealed class OrderConfigurations : IEntityTypeConfiguration<Order>
     {
         builder.HasKey(x => x.Id);
 
-        builder.HasOne(x => x.Package).WithOne(x => x.Order);
+        //builder.HasOne(x => x.Package).WithOne(x => x.Order).HasForeignKey<Package>(y => y.OrderId);
 
         //builder.HasOne(x => x.FromLocation).WithMany().HasForeignKey(x => x.FromLocationId);
 

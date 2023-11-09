@@ -12,6 +12,8 @@ public sealed class LocationConfiguration : IEntityTypeConfiguration<Location>
 
         builder.HasMany(x => x.Connections).WithOne(x => x.Source);
 
+        //builder.HasMany(x => x.Orders).WithOne(x => x.FromLocation);
+
         builder.Property(x => x.Name).HasMaxLength(256);
     }
 }

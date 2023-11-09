@@ -12,6 +12,6 @@ public sealed class PackageConfiguration : IEntityTypeConfiguration<Package>
 
         builder.HasMany(x => x.PackageTypePackages).WithOne(x => x.Package);
 
-        builder.HasOne(x => x.Order).WithOne(x => x.Package);
+        //builder.HasOne(x => x.Order).WithOne(x => x.Package);
     }
 }
