@@ -4,10 +4,10 @@ using Netcompany.Net.DomainDrivenDesign;
 using Netcompany.Net.UnitOfWork;
 using Netcompany.Net.UnitOfWork.AmbientTransactions;
 using Microsoft.EntityFrameworkCore;
+using RoutePlanning.Infrastructure.Services;
 
 namespace RoutePlanning.Infrastructure;
 public static class ServiceCollectionExtensions
-
 {
     public static IServiceCollection AddRoutePlanningInfrastructure(this IServiceCollection services)
     {
@@ -18,6 +18,8 @@ public static class ServiceCollectionExtensions
 
         services.AddDomainDrivenDesign(options => options.UseDbContext<RoutePlanningDatabaseContext>());
         services.AddUnitOfWork(builder => builder.UseAmbientTransactions().With<RoutePlanningDatabaseContext>());
+
+        services.AddScoped<LocationService>();
 
         return services;
     }

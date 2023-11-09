@@ -1,8 +1,10 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using RoutePlanning.Domain.Locations;
 
 namespace RoutePlanning.Infrastructure.Database;
 public sealed class RoutePlanningDatabaseContext : DbContext
 {
+    public DbSet<Location> Locations { get; set; }
     public RoutePlanningDatabaseContext(DbContextOptions dbContextOptions) : base(dbContextOptions)
     { }
 
