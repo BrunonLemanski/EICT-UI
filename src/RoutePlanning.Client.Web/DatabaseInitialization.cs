@@ -20,13 +20,13 @@ public static class DatabaseInitialization
             await SeedUsers(context);
             await SeedLocationsAndRoutes(context);
 
-            unitOfWork.Commit();
+            //unitOfWork.Commit();
         }
     }
 
     private static async Task SeedLocationsAndRoutes(RoutePlanningDatabaseContext context)
     {
-        var berlin = new Location("Berlin");
+        var berlin = new Location("Be");
         await context.AddAsync(berlin);
 
         var copenhagen = new Location("Copenhagen");
