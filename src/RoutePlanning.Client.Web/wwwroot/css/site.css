@@ -1,7 +1,7 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: "Comic Sans MS", cursive, sans-serif !important;
 }
 
 h1:focus {
@@ -14,8 +14,8 @@ a, .btn-link {
 
 .btn-primary {
     color: #fff;
-    background-color: #ec5a16;
-    border-color: #ec5a16;
+    background-color: #ec5a16 !important;
+    border-color: #ec5a16 !important;
 }
 
 .content {
