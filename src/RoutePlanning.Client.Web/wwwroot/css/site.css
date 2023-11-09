@@ -1,7 +1,7 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
-    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-family: "Comic Sans MS", cursive, sans-serif !important;
 }
 
 h1:focus {
@@ -14,8 +14,13 @@ a, .btn-link {
 
 .btn-primary {
     color: #fff;
+
     background-color: #db8f0b;
     border-color: #db8f0b;
+
+    background-color: #ec5a16 !important;
+    border-color: #ec5a16 !important;
+
 }
 
 .content {
@@ -62,3 +67,20 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+@media (max-width: 641px) {
+
+    .full-width {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    .alert-primary{
+        font-size: 9px;
+    }
+}
+
+.route{
+    display: block;
+}
+
