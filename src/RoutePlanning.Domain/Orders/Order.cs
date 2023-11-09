@@ -8,14 +8,24 @@ namespace RoutePlanning.Domain.Orders;
 [DebuggerDisplay("{OrderDate}")]
 public sealed class Order : Entity<Order>
 {
-    public Order(string status, float price, DateTime orderDate, Package package, int fromLocation, int toLocation) 
+    public Order(string status, float price, DateTime orderDate, Package package, Location fromLocation, Location toLocation) 
     {
         Status = status;
         Price = price;
         OrderDate = orderDate;
         Package = package;
-        FromLocationId = fromLocation;
-        ToLocationId = toLocation;
+        FromLocation = fromLocation;
+        ToLocation = toLocation;
+    }
+
+    public Order()
+    {
+        Status = null!;
+        Price = 0;
+        OrderDate = DateTime.Now;
+        Package = null!;
+        FromLocation = null!;
+        ToLocation = null!;
     }
 
     public string Status { get; set; }

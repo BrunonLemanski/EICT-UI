@@ -12,6 +12,11 @@ public sealed class Location : AggregateRoot<Location>
         Name = name;
     }
 
+    public Location()
+    {
+        Name = null!;
+    }
+
     public string Name { get; set; }
 
     private readonly List<Connection> _connections = new();
