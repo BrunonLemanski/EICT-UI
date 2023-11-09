@@ -19,8 +19,10 @@ public sealed class Location : AggregateRoot<Location>
     public string Name { get; set; }
 
     private readonly List<Connection> _connections = new();
+    //private readonly List<Order> _order = new();
 
     public IReadOnlyCollection<Connection> Connections => _connections.AsReadOnly();
+    //public IReadOnlyCollection<Order> Orders => _order.AsReadOnly();
 
     public Connection AddConnection(Location destination, int distance)
     {
