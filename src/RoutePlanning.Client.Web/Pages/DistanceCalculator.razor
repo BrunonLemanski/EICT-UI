@@ -12,6 +12,21 @@
             <LocationSelector Label="From:" Locations="@Locations" @bind-Selected="SelectedSource"></LocationSelector>
             <LocationSelector Label="To:" Locations="@Locations" @bind-Selected="SelectedDestination"></LocationSelector>
             <button class="btn btn-primary mb-5" @onclick="CalculateDistance">Calculate</button>
+
+            @inject NavigationManager NavigationManager
+
+            <button class="btn btn-primary" @onclick="NavigateToOrderConfirmation">
+                Go to Order Confirmation
+            </button>
+
+            @code {
+                private void NavigateToOrderConfirmation()
+                {
+                    NavigationManager.NavigateTo("/orderconfirmation");
+                }
+            }
+         
+            
         </div>
         <div class="col-md-6">
             <img src="map.png" alt="Responsive image" class="img-fluid full-width">
