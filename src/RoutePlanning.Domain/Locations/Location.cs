@@ -1,6 +1,5 @@
 ﻿using System.Diagnostics;
 using Netcompany.Net.DomainDrivenDesign.Models;
-using RoutePlanning.Domain.Orders;
 
 namespace RoutePlanning.Domain.Locations;
 
