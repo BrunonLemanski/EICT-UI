@@ -7,13 +7,13 @@ namespace RoutePlanning.Domain.Packages;
 [DebuggerDisplay("{Length}")]
 public sealed class Package : Entity<Package>
 {
-    public Package(int length, int width, int height, float weight) 
+    public Package(int length, int width, int height, float weight, Order order) 
     {
         Length = length;
         Width = width;
         Height = height;
         Weight = weight;
-        //Order = order;
+        Order = order;
     }
 
     public Package()
@@ -22,7 +22,7 @@ public sealed class Package : Entity<Package>
         Width = 0;
         Height = 0;
         Weight = 0;
-        //Order = null!;
+        Order = null!;
     }
 
     public int Length { get; set; }
@@ -30,7 +30,7 @@ public sealed class Package : Entity<Package>
     public int Height { get; set; }
     public float Weight { get; set; }
     public int OrderId { get; set; }
-    //public Order Order { get; set; }
+    public Order Order { get; set; } = null!;
 
     private readonly List<PackageTypePackage> _packageTypePackages = new();
 
