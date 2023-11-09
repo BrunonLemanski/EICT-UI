@@ -70,7 +70,12 @@ a, .btn-link {
         height: 100%;
         object-fit: cover;
     }
+    .alert-primary{
+        font-size: 9px;
+    }
 }
 
-
+.route{
+    display: block;
+}
 
