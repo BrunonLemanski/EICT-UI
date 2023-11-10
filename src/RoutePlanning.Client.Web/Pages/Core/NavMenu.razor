@@ -7,29 +7,29 @@
     </div>
 </div>
 
-<div class="@NavMenuCssClass" @onclick="ToggleNavMenu">
+<div class="@NavMenuCssClass" >
     <nav class="flex-column">
-        <div class="nav-item px-3">
+        <div class="nav-item px-3" @onclick="ToggleNavMenu">
             <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
                 <span class="oi oi-home" aria-hidden="true"></span> Home
             </NavLink>
         </div>
-        <div class="nav-item px-3">
+        <div class="nav-item px-3" @onclick="ToggleNavMenu">
             <NavLink class="nav-link" href="distancecalculator">
                 <span class="oi oi-signpost" aria-hidden="true"></span> Distance Calculator
             </NavLink>
         </div>
-        <div class="nav-item px-3">
+        <div class="nav-item px-3" @onclick="ToggleNavMenu">
             <NavLink class="nav-link" href="documentation">
                 <span class="oi oi-document" aria-hidden="true"></span> Documentation
             </NavLink>
         </div>
-        <div class="nav-item px-3">
+        <div class="nav-item px-3" @onclick="ToggleNavMenu">
             <NavLink class="nav-link" href="foundation">
                 <span class="oi oi-puzzle-piece" aria-hidden="true"></span> NC Foundation
             </NavLink>
         </div>
-        <div class="nav-item px-3">
+        <div class="nav-item px-3" @onclick="ToggleNavMenu">
             <NavLink class="nav-link" href="adminpage">
                 <span class="oi oi-person" aria-hidden="true"></span> Admin page
             </NavLink>

@@ -11,7 +11,7 @@
         </div>
     </NotAuthorized>
     <Authorized>
-        <span class="m-2">Hello, @context.User.Identity?.Name!</span>
+        <span class="m-2" style="color: white">Hello, @context.User.Identity?.Name!</span>
         <button class="btn btn-primary ml-2" @onclick="Logout">Logout</button>
     </Authorized>
 </AuthorizeView>
