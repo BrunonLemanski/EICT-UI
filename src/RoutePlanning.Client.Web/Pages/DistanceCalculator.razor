@@ -1,5 +1,5 @@
 ﻿@page "/distancecalculator"
-
+@using System.ComponentModel.DataAnnotations
 
 <PageTitle>Distance Calculator</PageTitle>
 
@@ -19,9 +19,51 @@
             <LocationSelector Label="To:" Locations="@Locations" @bind-Selected="SelectedDestination"></LocationSelector>
 
 
-            <button class="btn btn-primary mb-5" @onclick="CalculateDistance">Calculate</button>
 
-            @if (DisplayDistance is not null)
+            <EditForm Model="@parcelModel">
+                <DataAnnotationsValidator />
+                <ValidationSummary />
+
+                <div class="form-group">
+                    <label class=" col-md-2" for="weight">Weight (kg):</label>
+                    <InputNumber id="weight" class="col-md-8 form-control" @bind-Value="parcelModel.Weight" min="0" required />
+                    <ValidationMessage For="@(() => parcelModel.Weight)" />
+                </div>
+
+                <div class="form-group">
+                    <label class=" col-sm-2" for="height">Height (cm):</label>
+                    <InputNumber id="height" class=" col-sm-8 form-control" @bind-Value="parcelModel.Height" min="0" required />
+                    <ValidationMessage For="@(() => parcelModel.Height)" />
+                </div>
+
+                <div class="form-group">
+                    <label class=" col-md-2" for="length">Length (cm):</label>
+                    <InputNumber id="length" class=" col-md-8 form-control" @bind-Value="parcelModel.Length" min="0" required />
+                    <ValidationMessage For="@(() => parcelModel.Length)" />
+                </div>
+
+                <div class="form-group">
+                    <label class=" col-md-2" for="parcelType">Parcel Type:</label>
+                    <InputSelect id="parcelType" class=" col-md-8 form-control" @bind-Value="parcelModel.ParcelType">
+                        <option value="">Select parcel type</option>
+                        <option value="Basic">Basic</option>
+                        <option value="Recorded Delivery">Recorded Delivery</option>
+                        <option value="Weapons">Weapons</option>
+                        <option value="Live Animals">Live Animals</option>
+                        <option value="Cautious Parcels">Cautious Parcels</option>
+                        <option value="Refrigerated Goods">Refrigerated Goods</option>
+                    </InputSelect>
+                    <ValidationMessage For="@(() => parcelModel.ParcelType)" />
+                </div>
+
+
+                <button style="margin-bottom: 20px;" type="submit" @onclick="CalculateDistance" class="btn btn-primary">Book</button>
+
+            </EditForm>
+
+            
+
+            @if (DisplayDistance is not null && parcelModel.Weight != 0 && parcelModel.Height != 0 && parcelModel.Weight != 0 &&  parcelModel.ParcelType is not null)
             {
 
                 <span class="starred col-md-10 route alert alert-primary" style="display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
@@ -61,3 +103,27 @@
 <br />
 
 
+@code {
+    public class ParcelModel
+    {
+
+
+        [Required]
+        [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
+        public double Weight { get; set; }
+
+        [Required]
+        [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
+        public double Height { get; set; }
+
+        [Required]
+        [Range(1, int.MaxValue, ErrorMessage = "Please enter a value bigger than {1}")]
+        public double Length { get; set; }
+
+        [Required]
+        public string? ParcelType { get; set; }
+
+    }
+
+    private ParcelModel parcelModel = new ParcelModel();
+}
