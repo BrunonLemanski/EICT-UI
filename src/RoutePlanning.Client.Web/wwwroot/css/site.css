@@ -1,4 +1,4 @@
-@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
 html, body {
     font-family: "Comic Sans MS", cursive, sans-serif !important;
@@ -84,3 +84,15 @@ a, .btn-link {
     display: block;
 }
 
+.starred {
+    position: relative;
+}
+
+    .starred::before {
+        content: "★";
+        position: absolute;
+        top: -25px;
+        left: -10px;
+        color: yellow;
+        font-size: 35px;
+    }
